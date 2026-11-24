@@ -11,7 +11,10 @@ OUT_FILE = os.path.join(OUT_DIR, "bus-render.png")
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 scene = bpy.context.scene
-scene.render.engine = "BLENDER_EEVEE"
+scene.render.engine = "CYCLES"
+scene.cycles.device = "CPU"
+scene.cycles.samples = 64
+scene.cycles.use_denoising = True
 scene.render.resolution_x = 1920
 scene.render.resolution_y = 1080
 scene.render.image_settings.file_format = "PNG"
