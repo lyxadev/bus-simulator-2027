@@ -12,7 +12,7 @@ Kontrol: W/S gas dan rem, A/D belok.
 
 ## Build
 
-Workflow GitHub Actions di `.github/workflows/build.yml` mengekspor versi web dan menyimpannya sebagai artifact.
+Workflow GitHub Actions di `.github/workflows/build.yml` mengekspor versi web dan menyimpannya sebagai artifact. Workflow ini jalan otomatis setiap ada commit ke `main`.
 
 ## Fitur rencana
 
