@@ -1,20 +1,18 @@
 # Bus Simulator 2027
 
-Bus Simulator 2027 adalah game simulator mengemudi bus kota, dibuat dengan Godot 4 (GDScript).
+Bus Simulator 2027 adalah game simulator mengemudi bus kota, dibuat dengan Godot 4.7.2 (GDScript).
 
 ## Cara menjalankan
 
-1. Install Godot 4.4 (atau versi 4.x yang lebih baru).
+1. Install Godot 4.7.2.
 2. Buka Godot, pilih Import, lalu pilih file `project.godot` di folder ini.
 3. Tekan F5 untuk menjalankan.
 
+Kontrol: W/S gas dan rem, A/D belok.
+
 ## Build
 
-Workflow GitHub Actions di `.github/workflows/ci.yml` mengekspor versi web dan menyimpannya sebagai artifact.
-
-## Status
-
-Prototipe awal: tampilan halte berikutnya dan waktu berjalan.
+Workflow GitHub Actions di `.github/workflows/build.yml` mengekspor versi web dan menyimpannya sebagai artifact.
 
 ## Fitur rencana
 
