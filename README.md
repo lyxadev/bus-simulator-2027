@@ -10,9 +10,17 @@ Bus Simulator 2027 adalah game simulator mengemudi bus kota, dibuat dengan Godot
 
 Kontrol: W/S gas dan rem, A/D belok.
 
+## Model bus
+
+Model dibuat oleh Blender lewat `tools/make_bus.py` dan disimpan sebagai `assets/models/bus.glb`. Jalankan manual dengan:
+
+```
+blender -b --factory-startup --python tools/make_bus.py
+```
+
 ## Build
 
-Workflow GitHub Actions di `.github/workflows/build.yml` mengekspor versi web dan menyimpannya sebagai artifact. Workflow ini jalan otomatis setiap ada commit ke `main`.
+Workflow GitHub Actions di `.github/workflows/build.yml` memasang Blender, membuat model bus, mengekspor versi web Godot, dan menyimpannya sebagai artifact. Workflow ini jalan otomatis setiap ada commit ke `main`.
 
 ## Fitur rencana
 
