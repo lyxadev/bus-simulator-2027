@@ -15,8 +15,23 @@ jobs:
     timeout-minutes: 30
     env:
       GODOT_VERSION: 4.7.2
+      BLENDER_VERSION: "4.2.3"
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install Blender
+        run: |
+          set -euo pipefail
+          curl -fsSL -o blender.tar.xz "https://download.blender.org/release/Blender4.2/blender-${BLENDER_VERSION}-linux-x64.tar.xz"
+          mkdir -p "$HOME/blender"
+          tar -xJf blender.tar.xz -C "$HOME/blender" --strip-components=1
+          "$HOME/blender/blender" --version
+
+      - name: Build bus model with Blender
+        run: |
+          set -euo pipefail
+          "$HOME/blender/blender" -b --factory-startup --python tools/make_bus.py
+          ls -lh assets/models/bus.glb
 
       - name: Download Godot and export templates
         run: |
@@ -43,3 +58,8 @@ jobs:
         with:
           name: web-build
           path: build/web
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bus-model
+          path: assets/models/bus.glb
