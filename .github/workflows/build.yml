@@ -33,6 +33,12 @@ jobs:
           "$HOME/blender/blender" -b --factory-startup --python tools/make_bus.py
           ls -lh assets/models/bus.glb
 
+      - name: Render luxury bus scene with Blender
+        run: |
+          set -euo pipefail
+          "$HOME/blender/blender" -b --factory-startup --python tools/render_scene.py
+          ls -lh assets/design/bus-render.png
+
       - name: Download Godot and export templates
         run: |
           set -euo pipefail
@@ -63,3 +69,8 @@ jobs:
         with:
           name: bus-model
           path: assets/models/bus.glb
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bus-render
+          path: assets/design/bus-render.png
